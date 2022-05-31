@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var nomes = [];
+        var cursos = ["Java", "PHP", "Python"]
+
+        nomes.push("jose");
+        nomes.push("maria");
+        nomes.unshift("tite");
+        
+        // remove o ultimo elemento do vetor
+        // nomes.pop();
+
+        // remover o primeiro elemento do vetor
+        // nomes.shift();
+
+        // escolhe qual remover
+        // nomes.splice(1,1);
+
+        //saber a posicao do elemento no vetor
+        // console.log(nomes.indexOf("maria"));
+
+        // //ordem crescente somente o sort; decrescente sort e reverse
+        // nomes.sort
+        // nomes.reverse
+
+        document.write(nomes[0]);
+        document.write("<br>");
+        document.write(nomes[5]);
+        document.write("<br>");
+
+        for (let i = 0; i < nomes.length; i++) {
+            document.write(nomes[i]);
+            document.write("<br>");
+        }
+
+        var vetor = new Array(10);
+
+        for (let count = 0; count < vetor.length; count++) {
+            vetor[count] = count * 2;
+            document.write(vetor[count] + "<br>");
+        }
+    </script>
+</body>
+
+</html>

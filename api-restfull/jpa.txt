@@ -1,0 +1,215 @@
+A Java Persistence API (JPA) é uma especificação Java que preenche a lacuna entre bancos de dados relacionais e programação orientada a objetos. Este tutorial de duas partes apresenta o JPA e explica como os objetos Java são modelados como entidades JPA, como os relacionamentos de entidade são definidos e como usar JPAs EntityManagercom o padrão Repository em seus aplicativos Java.
+
+Observe que este tutorial usa o Hibernate como o provedor JPA. A maioria dos conceitos pode ser estendida a outras estruturas de persistência Java.
+
+O que é JPA?
+Consulte " O que é JPA? Introdução à Java Persistence API " para aprender sobre a evolução do JPA e estruturas relacionadas, incluindo EJB 3.0. e JDB.
+
+Relações de objeto em JPA
+Os bancos de dados relacionais existem como um meio de armazenar dados de programas desde a década de 1970. Embora os desenvolvedores hoje tenham muitas alternativas ao banco de dados relacional , esse tipo de banco de dados é escalável e bem compreendido, e ainda é amplamente utilizado no desenvolvimento de software de pequena e grande escala.
+
+[ Também no InfoWorld: JDK 17: Os novos recursos do Java 17 ]
+Objetos Java em um contexto de banco de dados relacional são definidos como entidades . As entidades são colocadas em tabelas onde ocupam colunas e linhas. Os programadores usam chaves estrangeiras e tabelas de junção para definir os relacionamentos entre entidades - ou seja, relacionamentos um-para-um, um-para-muitos e muitos-para-muitos. Também podemos usar SQL (Structured Query Language) para recuperar e interagir com dados em tabelas individuais e em várias tabelas, usando restrições de chave estrangeira. O modelo relacional é simples, mas os desenvolvedores podem escrever consultas para recuperar dados e construir objetos a partir desses dados.
+
+
+Incompatibilidade de impedância de relações de objeto
+Você pode estar familiarizado com o termo incompatibilidade de impedância de relações de objeto , que se refere ao desafio de mapear objetos de dados para um banco de dados relacional. Essa incompatibilidade ocorre porque o design orientado a objetos não se limita a relacionamentos um-para-um, um-para-muitos e muitos-para-muitos. Em vez disso, no design orientado a objetos, pensamos em objetos, seus atributos e comportamento e como os objetos se relacionam. Dois exemplos são encapsulamento e herança:
+
+Se um objeto contém outro objeto, definimos isso por meio de encapsulamento --a tem-um relacionamento.
+Se um objeto é uma especialização de outro objeto, definimos isso por meio de herança --um é-um relacionamento.
+Associação, agregação, composição, abstração, generalização, realização e dependências são todos conceitos de programação orientada a objetos que podem ser desafiadores para mapear para um modelo relacional.
+
+ORM: mapeamento objeto-relacional
+A incompatibilidade entre o design orientado a objetos e a modelagem de banco de dados relacional levou a uma classe de ferramentas desenvolvidas especificamente para mapeamento objeto-relacional (ORM). Ferramentas ORM como Hibernate, EclipseLink e iBatis traduzem modelos de banco de dados relacionais, incluindo entidades e seus relacionamentos, em modelos orientados a objetos. Muitas dessas ferramentas existiam antes da especificação JPA, mas sem um padrão seus recursos dependiam do fornecedor.
+
+[ INSCREVA- SE AGORA para CIO 100: Simpósio e Conferência de Prêmios, 15 a 17 de agosto ]
+Lançada pela primeira vez como parte do EJB 3.0 em 2006, a Java Persistence API (JPA) oferece uma maneira padrão de anotar objetos para que possam ser mapeados e armazenados em um banco de dados relacional. A especificação também define uma construção comum para interagir com bancos de dados. Ter um padrão ORM para Java traz consistência às implementações de fornecedores, ao mesmo tempo em que permite flexibilidade e complementos. Como exemplo, embora a especificação JPA original seja aplicável a bancos de dados relacionais, algumas implementações de fornecedores estenderam o JPA para uso com bancos de dados NoSQL.
+
+Evolução do JPA
+A primeira versão do JPA, versão 1.0, foi publicada em 2006 através do Java Community Process (JCP) como Java Specification Request (JSR) 220. A versão 2.0 (JSR 317) foi publicada em 2009, a versão 2.1 (JSR 338) em 2013, e a versão 2.2 (uma versão de manutenção do JSR 338) foi publicada em 2017. O JPA 2.2 foi selecionado para inclusão e desenvolvimento contínuo no Jakarta EE.
+
+Introdução ao JPA
+A Java Persistence API é uma especificação, não uma implementação: ela define uma abstração comum que você pode usar em seu código para interagir com produtos ORM. Esta seção revisa algumas das partes importantes da especificação JPA.
+
+Você aprenderá a:
+
+Defina entidades, campos e chaves primárias no banco de dados.
+Crie relacionamentos entre entidades no banco de dados.
+Trabalhe com o EntityManagere seus métodos.
+Definindo entidades
+Para definir uma entidade, você deve criar uma classe que seja anotada com a @Entityanotação. A @Entityanotação é uma anotação de marcador , que é usada para descobrir entidades persistentes. Por exemplo, se você quisesse criar uma entidade de livro, você a anotaria da seguinte forma:
+
+
+@Entity
+public class Book {
+   ...
+}
+Por padrão, essa entidade será mapeada para a Booktabela, conforme determinado pelo nome de classe fornecido. Se você quiser mapear essa entidade para outra tabela (e, opcionalmente, um esquema específico), poderá usar a @Tableanotação para fazer isso. Veja como você mapearia a Bookclasse para uma tabela BOOKS:
+
+
+@Entity
+@Table(name="BOOKS")
+public class Book {
+   ...
+}
+Se a tabela BOOKS estiver no esquema PUBLISHING, você poderá adicionar o esquema à @Tableanotação:
+
+
+@Table(name="BOOKS", schema="PUBLISHING")
+Mapeando campos para colunas
+Com a entidade mapeada para uma tabela, sua próxima tarefa é definir seus campos. Os campos são definidos como variáveis ​​de membro na classe, com o nome de cada campo sendo mapeado para um nome de coluna na tabela. Você pode substituir esse mapeamento padrão usando a @Columnanotação, conforme mostrado aqui:
+
+
+@Entity
+@Table(name="BOOKS")
+public class Book {
+   private String name;
+   @Column(name="ISBN_NUMBER")
+   private String isbn;
+   ...
+}
+Neste exemplo, aceitamos o mapeamento padrão para o nameatributo, mas especificamos um mapeamento personalizado para o isbnatributo. O nameatributo será mapeado para a coluna name , mas o isbnatributo será mapeado para a coluna ISBN_NUMBER.
+
+A @Columnanotação nos permite definir propriedades adicionais do campo/coluna, incluindo comprimento, se é anulável, se deve ser único, sua precisão e escala (se for um valor decimal), se é inserível e atualizável, e assim por diante .
+
+Especificando a chave primária
+Um dos requisitos para uma tabela de banco de dados relacional é que ela deve conter uma chave primária ou uma chave que identifique exclusivamente uma linha específica no banco de dados. Em JPA, usamos a @Idanotação para designar um campo para ser a chave primária da tabela. A chave primária deve ser um tipo primitivo Java, um wrapper primitivo, como Integeror Long, a String, a Date, a BigIntegerou a BigDecimal.
+
+Neste exemplo, mapeamos o idatributo, que é um Integer, para a coluna ID na tabela BOOKS:
+
+
+@Entity
+@Table(name="BOOKS")
+public class Book {
+   @Id
+   private Integer id;
+   private String name;
+   @Column(name="ISBN_NUMBER")
+   private String isbn;
+   ...
+}
+Também é possível combinar a @Idanotação com a @Columnanotação para substituir o mapeamento de nome de coluna da chave primária.
+
+Relacionamentos entre entidades
+Agora que você sabe como definir uma entidade, vamos ver como criar relacionamentos entre entidades. A JPA define quatro anotações para definir entidades:
+
+@OneToOne
+@OneToMany
+@ManyToOne
+@ManyToMany
+Relacionamentos um a um
+A @OneToOneanotação é usada para definir um relacionamento um-para-um entre duas entidades. Por exemplo, você pode ter uma Userentidade que contém um nome de usuário, e-mail e senha, mas pode querer manter informações adicionais sobre um usuário (como idade, sexo e cor favorita) em uma UserProfileentidade separada. A @OneToOneanotação facilita a divisão de seus dados e entidades dessa maneira.
+
+A Userclasse abaixo tem uma única UserProfileinstância. Os UserProfilemapas para uma única Userinstância.
+
+
+@Entity
+public class User {
+   @Id
+   private Integer id;
+   private String email;
+   private String name;
+   private String password;
+   @OneToOne(mappedBy="user")
+   private UserProfile profile;
+   ...
+}
+
+@Entity
+public class UserProfile {
+   @Id
+   private Integer id;
+   private int age;
+   private String gender;
+   private String favoriteColor;
+   @OneToOne
+   private User user;
+   ...
+}
+O provedor JPA usa o campo UserProfile's para usermapear . O mapeamento é especificado no atributo na anotação.UserProfileUsermappedBy@OneToOne
+
+Relacionamentos um-para-muitos e muitos-para-um
+As anotações @OneToManye @ManyToOnefacilitam ambos os lados do mesmo relacionamento. Considere um exemplo em que a Bookpode ter apenas um Author, mas Authorpode ter muitos livros. A Bookentidade definiria um @ManyToOnerelacionamento com Authore a Authorentidade definiria um @OneToManyrelacionamento com Book.
+
+
+@Entity
+public class Book {
+    @Id
+    private Integer id;
+    private String name;
+    @ManyToOne
+    @JoinColumn(name="AUTHOR_ID")
+    private Author author;
+    ...
+}
+
+@Entity
+public class Author {
+    @Id
+    @GeneratedValue
+    private Integer id;
+    private String name;
+    @OneToMany(mappedBy = "author")
+    private List<Book> books = new ArrayList<>();
+    ...
+}
+Nesse caso, a Authorclasse mantém uma lista de todos os livros escritos por esse autor e a Bookclasse mantém uma referência ao seu único autor. Além disso, @JoinColumnespecifica o nome da coluna na Booktabela para armazenar o ID do arquivo Author.
+
+Relacionamentos muitos-para-muitos
+Finalmente, a @ManyToManyanotação facilita um relacionamento muitos-para-muitos entre entidades. Aqui está um caso em que uma Bookentidade tem vários Authors:
+
+
+@Entity
+public class Book {
+    @Id
+    private Integer id;
+    private String name;
+    @ManyToMany
+    @JoinTable(name="BOOK_AUTHORS",
+    		   joinColumns=@JoinColumn(name="BOOK_ID"),
+    		   inverseJoinColumns=@JoinColumn(name="AUTHOR_ID"))
+    private Set<Author> authors = new HashSet<>();
+    ...
+}
+
+@Entity
+public class Author {
+    @Id
+    @GeneratedValue
+    private Integer id;
+    private String name;
+    @ManyToMany(mappedBy = "author")
+    private Set<Book> books = new HashSet<>();
+    ...
+}
+Neste exemplo, criamos uma nova tabela, BOOK_AUTHORS, com duas colunas: BOOK_IDe AUTHOR_ID. O uso dos atributos joinColumnsand inverseJoinColumnsinforma à estrutura JPA como mapear essas classes em um relacionamento muitos-para-muitos. A @ManyToManyanotação na Authorclasse referencia o campo na Bookclasse que gerencia o relacionamento; ou seja, a authorspropriedade.
+
+Essa é uma demonstração rápida para um tópico bastante complexo. Vamos nos aprofundar nas anotações @JoinTablee no próximo artigo.@JoinColumn
+
+Trabalhando com o EntityManager
+EntityManageré a classe que realiza interações de banco de dados em JPA. Ele é inicializado através de um arquivo de configuração chamado persistence.xml. Esse arquivo está localizado na META-INFpasta em seu CLASSPATH, que normalmente é empacotado em seu arquivo JAR ou WAR. O persistence.xmlarquivo contém:
+
+A chamada "unidade de persistência", que especifica a estrutura de persistência que você está usando, como Hibernate ou EclipseLink.
+Uma coleção de propriedades que especificam como se conectar ao seu banco de dados, bem como quaisquer personalizações na estrutura de persistência.
+Uma lista de classes de entidade em seu projeto.
+Vejamos um exemplo.
+
+Configurando o EntityManager
+Primeiro, criamos um EntityManagerusando o EntityManagerFactoryrecuperado da Persistenceclasse:
+
+
+EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Books");
+EntityManager entityManager = entityManagerFactory.createEntityManager();
+Neste caso criamos um EntityManagerque está conectado à unidade de persistência "Books", que configuramos no persistence.xmlarquivo.
+
+A EntityManagerclasse define como nosso software irá interagir com o banco de dados por meio de entidades JPA. Aqui estão alguns dos métodos usados ​​por EntityManager:
+
+findrecupera uma entidade por sua chave primária.
+createQuerycria uma Queryinstância que pode ser usada para recuperar entidades do banco de dados.
+createNamedQuerycarrega um Queryque foi definido em uma @NamedQueryanotação dentro de uma das entidades de persistência. As consultas nomeadas fornecem um mecanismo limpo para centralizar consultas JPA na definição da classe de persistência na qual a consulta será executada.
+getTransactiondefine um EntityTransactionpara usar em suas interações com o banco de dados. Assim como as transações de banco de dados, você normalmente iniciará a transação, executará suas operações e, em seguida, confirmará ou reverterá sua transação. O getTransaction()método permite acessar esse comportamento no nível do EntityManager, em vez do banco de dados.
+merge()adiciona uma entidade ao contexto de persistência, de modo que, quando a transação for confirmada, a entidade persistirá no banco de dados. Ao usar merge(), os objetos não são gerenciados.
+persistadiciona uma entidade ao contexto de persistência, de modo que, quando a transação for confirmada, a entidade persistirá no banco de dados. Ao usar persist(), os objetos são gerenciados.
+refreshatualiza o estado da entidade atual do banco de dados.
+flushsincroniza o estado do contexto de persistência com o banco de dados.
+Não se preocupe em integrar todos esses métodos de uma vez. Você os conhecerá trabalhando diretamente com o EntityManager, o que faremos mais na próxima seção.

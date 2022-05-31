@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="br.com.serratec.versao1.entidade.Cachorro"/>
+    <fullyQualifiedTypeName name="impostos.Renda"/>
+    <fullyQualifiedTypeName name="br.com.serratec.entidades.Caneta"/>
+    <fullyQualifiedTypeName name="contas.Conta"/>
+    <fullyQualifiedTypeName name="enums.ContaTipo"/>
+    <fullyQualifiedTypeName name="dominio.SistemaInterno"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="enums.Contas"/>
+    <fullyQualifiedTypeName name="interfaces.TributosContas"/>
+    <fullyQualifiedTypeName name="Menus.MenuPrincipal"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="Usuarios.User"/>
+    <fullyQualifiedTypeName name="Usuarios.Cliente"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="menus.MenuContas"/>
+    <fullyQualifiedTypeName name="repositorios.UsuarioRepositorio"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,110 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.layout-cabecalho {
+    background-color: #ff66c4;
+    color: black;
+    font-size: 4rem;
+    font-weight: bold;
+    background-image: url(https://img.freepik.com/free-vector/realistic-white-golden-geometric-background_79603-2032.jpg);
+    background-repeat: repeat-x;
+    background-blend-mode: multiply;
+}
+
+.layout-cabecalho p {
+    padding-top: 64px;
+}
+
+.layout-principal {
+    text-align: center;
+    background-color: black;
+    color: green;
+    padding: 100px;
+}
+
+.layout-principal img {
+    border-radius: 10%;
+}
+
+.container--cabecalho {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.img {
+    height: 50px;
+    width: 50px;
+}
+
+.layout-rodape a {
+    text-decoration: none;
+    color: black;
+}
+
+.layout-rodape {
+    background-color: #ff66c4;
+    color: black;
+    padding: 30px 0;
+    background-image: url(https://img.freepik.com/free-vector/realistic-white-golden-geometric-background_79603-2032.jpg);
+    background-repeat: repeat-x;
+    background-blend-mode: multiply;
+}
+
+.layout-rodape p {
+    padding-top: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.masculino {
+    background-color: black;
+    color: #7ED957;
+    background-image: url(https://i0.wp.com/multarte.com.br/wp-content/uploads/2018/12/fundo-preto-background.png?fit=1920%2C1080&ssl=1);
+    background-repeat: no-repeat;
+    background-blend-mode: difference;
+}
+
+.feminino {
+    background-color: #7ED957;
+    color: black;
+    background-image: url(https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjg4MC1rdWwtMTEuanBn.jpg);
+    background-repeat: repeat-x;
+    background-blend-mode: multiply;
+
+}
+
+.acessorios {
+    background-color: #ffdead;
+    color: black;
+    background-image: url(https://img.freepik.com/vetores-gratis/fundo-branco-com-padroes-de-triangulo_1017-18410.jpg?w=1380&t=st=1652472373~exp=1652472973~hmac=8ec73d6f3136c07c0c51e861e86c02c2572862b78af0ac7c232937828dd9e66e);
+    background-repeat: repeat-x;
+    background-blend-mode: multiply;
+}
+
+.links a {
+    font-weight: bold;
+}
+
+.links {
+    background-color: #7ED957;
+    border-style: none;
+    padding: 4px;
+    border-radius: 5%;
+}
+
+.img-roupas {
+    width: 300px;
+    height: 350px;
+    margin: 14px 0;
+}
+
+.preco {
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.4rem;
+}

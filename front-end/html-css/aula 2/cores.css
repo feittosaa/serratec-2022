@@ -1,0 +1,18 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.blue{
+    background-color: blue;
+    color: lightblue;
+}
+
+.red{
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 124, 146);
+}
+
+.green{
+    background-color: #8bcd81;
+    color: #c6f3bf;
+}

@@ -1,0 +1,28 @@
+body{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* p{
+    text-align: justify;
+    width: 600px;
+    border: 8px solid yellowgreen;
+    background-color: bisque;
+    padding: 20px 60px;
+    padding-left: 100px;
+} */
+
+.a, .b{
+    text-align: center;
+    width: 300px;
+    border: 6px solid green;
+}
+
+.a{
+    margin: 0px 306px;
+}
+
+.b{
+   margin: 0;
+}

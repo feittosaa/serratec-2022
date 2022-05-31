@@ -1,0 +1,44 @@
+*{
+    background-color: rgb(63, 63, 63);
+}
+
+h3{
+    color: aliceblue;
+}
+
+.link:link{
+    color: green;
+}
+
+.link:visited{
+    color: red;
+}
+
+.link:hover{
+    color: aqua;
+}
+
+.linguagens li{
+    color: pink;
+    border-bottom: 1px solid whitesmoke;
+    display: block;
+}
+.linguagens li:first-child{
+    color: yellow;
+}
+.linguagens li:last-child{
+    color: blueviolet;
+    border: none;
+}
+
+.conteudo span{
+    font-variant: small-caps;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.conteudo span:nth-child(odd){
+    color: aqua;
+    margin-bottom: 10px;
+    display: block;
+}

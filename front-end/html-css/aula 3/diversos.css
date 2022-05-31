@@ -1,0 +1,24 @@
+*{
+    background-color: black;
+}
+
+body{
+
+}
+
+#titulo{
+    background-color: purple;
+}
+
+.destaque{
+    color: darkgreen;
+}
+
+.missao{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: inherit;
+}
+
+.missao strong{
+    background-color: indigo;
+}

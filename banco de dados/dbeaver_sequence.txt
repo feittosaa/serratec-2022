@@ -1,0 +1,13 @@
+create schema aula	
+create sequence aula.seq_id_cliente; 						// criar auto incremento (i++)
+create table if not exists aula.cliente(  				     // nao sobscreve (referenciar o schema antes do nome)
+				codigo_cliente int primary key 
+				default nextval ('aula.seq_id_cliente'),  // fala que o valor padrao e o proximo da sequencia 
+				nome varchar(40),
+				telefone varchar(11),
+				email varchar(30));
+
+ALTER SEQUENCE aula.seq_id_cliente					    // altera o incremento, valor minimo e maximo
+	INCREMENT BY 10
+	MINVALUE 1
+	START 1000;

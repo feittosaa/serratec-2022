@@ -1,0 +1,27 @@
+create table cliente(codigo_cliente int primary key,
+						nome varchar(40),
+						telefone varchar(11),
+						email varchar (50));
+			
+			
+create table produto (codigo_produto int primary key,
+						nome varchar(40) not null,
+						descricao text,
+						preco numeric check (preco > 0)not null,
+						quantidade_estoque smallint default 0);
+						
+create table departamento(codigo_departamento int primary key,
+						  nome varchar(30));
+						  
+create table funcionario(codigo_funcionario int primary key,
+						nome varchar (30) not null,
+						telefone varchar (11)<
+						email varchar(30),
+						codigo_departamento int,
+						foreign key(codigo_departamento)
+						references departamento (codigo_departamento)) // colocar a foreign key e referenciar
+						
+create schema aula; // criar schemas (divisoes)
+
+create table aula.categoria(codigo_categoria serial primary key,        	   // serial cria auto incremento i++ direto
+							descricao varchar(30));

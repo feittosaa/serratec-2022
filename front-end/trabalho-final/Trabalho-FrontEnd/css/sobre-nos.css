@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+}
+
+.quemsomos-cabecalho {
+    height: 120px;
+    border-bottom: 2px black;
+    background-color: #FF66C4;
+
+    padding-top: 10px;
+    background-image: url(https://img.freepik.com/free-vector/realistic-white-golden-geometric-background_79603-2032.jpg);
+    background-repeat: repeat-x;
+    background-blend-mode: multiply;
+}
+
+.quemsomos-cabecalho-home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: auto;
+}
+
+.logo {
+    float: right;
+}
+
+.quemsomos-cabecalho>h1 {
+    color: black;
+    margin: 4%;
+}
+
+.mensagem {
+    color: #7ED957;
+    text-align: left;
+    margin-top: 14%;
+    margin-left: 6%;
+    padding-top: 2%;
+    margin-right: 6%;
+}
+
+.mensagem h2 {}
+
+.siteblindado {
+
+    float: none;
+
+    border-radius: 10px;
+    margin-top: 190px;
+    display: inline-block;
+    width: 10%;
+    height: 8%;
+    padding-bottom: 28px;
+}
+
+.layout-rodape img {
+    padding-top: 0px;
+    width: 40px;
+    height: 40px;
+}
+
+.layout-rodape a {
+    text-decoration: none;
+    color: black;
+}
+
+.layout-rodape {
+    background-color: #ff66c4;
+    color: black;
+    padding: 20px 10px;
+    padding-right: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-image: url(https://img.freepik.com/free-vector/realistic-white-golden-geometric-background_79603-2032.jpg);
+    background-repeat: repeat-x;
+    background-blend-mode: multiply;
+}
+
+.layout-rodape p {
+    padding-top: 28px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.layout-rodape h1 {
+    margin-top: 6px;
+    font-size: 16px;
+}

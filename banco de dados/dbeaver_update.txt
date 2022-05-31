@@ -1,0 +1,1 @@
+update aula.produto set nome ='rinosoro' where codigo_produto = 1

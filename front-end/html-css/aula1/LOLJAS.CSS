@@ -1,0 +1,29 @@
+body{
+    background-color: aquamarine;
+}
+p{
+    color: tan;
+    background-color: deeppink;
+    font-family: Arial;
+    text-align: center;
+}
+
+.teste{
+    color: rebeccapurple;
+    background-color: darkgoldenrod;
+    font-family: Arial;
+    text-align: center;
+}
+
+.teste2{
+    color: teal;
+    background-color: darkgreen;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+strong{
+    color: greenyellow;
+}
+h1{
+    font-size: large;
+}

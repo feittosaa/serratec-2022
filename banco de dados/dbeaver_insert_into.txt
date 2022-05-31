@@ -1,0 +1,15 @@
+insert into cliente (codigo_cliente,nome,telefone,email) 
+		values (1,'roni','2332332','roni@gmail.com'),
+				(2,'ana','2342344','ana@gmail.com');
+				
+insert into aula.cliente (nome, telefone, email)
+				values('Roni','23434','roni@hotmail.com'),
+					  ('Ana','23234','ana@hotmail.com'),
+					  ('Maria','21434','maria@hotmail.com')	
+					  
+insert into aula.categoria (descricao)
+							values ('Eletronicos'),
+									('Alimentos'),
+									('Perfumaria'),
+									('Farmacia'),
+									('Jogos')

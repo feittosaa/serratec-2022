@@ -1,0 +1,9 @@
+alter table cliente add column celular varchar(11) // adicionar
+
+alter table cliente drop column telefone; // elimina tudo ("delete" elimina conjunto)
+
+alter table cliente alter column nome type varchar(60) // alterar o tamanho 
+
+drop table cliente;
+drop table departamento;
+drop table produto;					// apaga TUDO

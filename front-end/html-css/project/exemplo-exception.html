@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        try {
+            document.writi("a")
+        } catch (error) {
+            document.write("erro: " + error.message)
+        } finally {
+            document.write("<br> finally = sempre executado <br>")
+        }
+
+        try {
+            var num;
+            num = 10 / 0;
+            document.write(num)
+        } catch (error) {
+            document.write("erro: " + error.message)
+        }
+
+        try {
+            var preco = -1;
+            if (preco < 0) {
+                throw new Error("<br> invalido <br>");
+            }
+        }catch (e){
+            document.write(e.message + " preco inserido: " + preco);
+            preco = 0;
+        }finally{
+            document.write("<br> preco final: " + preco)
+        }
+    </script>
+</body>
+
+</html>

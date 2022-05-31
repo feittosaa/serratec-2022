@@ -1,0 +1,28 @@
+body{
+    font-size: 14px;
+}
+
+.tabela{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.tabela td, .tabela th{
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+}
+
+.tabela th{
+    background: #ececec;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tabela tr:nth-child(even){
+    background-color: #ececec;
+}
+
+.tabela tr:hover{
+    background-color: aqua;
+}

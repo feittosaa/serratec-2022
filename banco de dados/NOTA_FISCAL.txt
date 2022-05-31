@@ -1,0 +1,7 @@
+SELECT * FROM pedido p
+inner join venda_efetuado ve
+  on p.numero = ve.fk_pedido_numero
+inner join cliente c
+  on c.codigo_cliente = p.fk_cliente_codigo_cliente
+inner join produto pr
+  on pr.codigo_produto = ve.fk_produto_codigo_produto

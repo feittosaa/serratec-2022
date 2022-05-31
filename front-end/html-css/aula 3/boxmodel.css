@@ -1,0 +1,32 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    margin: auto;
+
+}
+
+.t1, .t2, .t3{
+    text-align: justify;
+    width: 600px;
+    background-color: aliceblue;
+}
+
+p{
+    margin: 10px;
+}
+
+.t1{
+    border: 20px solid red;
+    padding: 70px;
+}
+
+.t2{
+    border: 20px solid red;
+    padding: 70px;
+    box-sizing: border-box;
+}
+
+.t3{
+    background-color: goldenrod;
+    height: auto;
+}
