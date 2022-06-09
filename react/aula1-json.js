@@ -1,4 +1,4 @@
-const data = [
+const anime = [
     {
       "studio": "Wit Studio",
       "genres": [
@@ -937,8 +937,30 @@ const data = [
     }
 ]
 
-const exemplo = data.map((n, index) => {
-    return `nomes: ${n.studio}`;
+const studios = anime.map((s, index) => {
+  return `studio: ${s.studio} - hype: ${s.hype}`;
 })
+console.log(studios);
 
-console.log(exemplo);
+anime.forEach(g => {
+  console.log(
+    `genre: ${g.genres}`
+  )
+});
+
+// anime.map((g) =>{
+//   if(g.genres == "Comedy"){
+    
+//   }  
+// })
+
+// const genre = anime.filter((animes) => {
+//   return animes.type.includes("Comedy");
+// });
+// console.log(genre);
+
+const comedy = anime.find((c) => c.genres.includes("Comedy"));
+console.log(comedy);
+
+const generos = anime.filter((a)=> a.genres.includes("Comedy"));
+console.log(generos);
