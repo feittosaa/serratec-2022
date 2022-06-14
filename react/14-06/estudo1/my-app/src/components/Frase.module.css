@@ -1,0 +1,12 @@
+/* nomes de classe sempre em camelCase ou com _
+nunca utilizar - pois da erro no js */
+
+.fraseContainer {
+    background-color: #333;
+    border: 1px solid #afa;
+}
+
+.fraseContent {
+    color: yellow;
+    margin: 0;
+}
