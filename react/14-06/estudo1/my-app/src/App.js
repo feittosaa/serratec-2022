@@ -3,6 +3,8 @@ import HelloWorld from './components/HelloWorld';
 import SayMyName from './components/SayMyName';
 import Pessoa from './components/Pessoa';
 import List from './components/List';
+import Evento from './components/Evento';
+import Form from './components/Form';
 
 function App() {
   const name = "Lucas"
@@ -32,7 +34,9 @@ function App() {
         nome="Rodrigo"
         foto="https://muradpma.com/wp-content/uploads/2021/10/Alexandre-Fragoso-Machado-300x300.jpg" />
 
-        <List/>
+      <List/>
+      <Evento/>
+      <Form/>
     </div>
   );
 }
