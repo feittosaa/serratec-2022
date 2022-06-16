@@ -1,9 +1,9 @@
- function SayMyName(props){
+function SayMyName(props) {
     return (
         <div>
             <p>Fala ai {props.name}, suave?</p>
         </div>
     )
- }
+}
 
- export default SayMyName
+export default SayMyName

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
 function Form() {
     function cadastrarUsuario(e) {
@@ -13,11 +13,11 @@ function Form() {
         <div>
             <h1>Meu cadastro</h1>
             <form onSubmit={cadastrarUsuario}>
-                    <label htmlFor="name">Nome:</label>
+                <label htmlFor="name">Nome:</label>
                 <div>
-                    <input type="text" id="name" name="name" placeholder="Digite seu nome" onChange={(e)=>setName(e.target.value)}/>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" onChange={(e) => setName(e.target.value)} />
                 </div>
-                    <label htmlFor="password">Senha:</label>
+                <label htmlFor="password">Senha:</label>
                 <div>
                     <input type="text" id="password" name="password" placeholder="Digite sua senha" />
                 </div>

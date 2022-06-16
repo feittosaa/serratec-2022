@@ -1,11 +1,11 @@
 import Frase from "./Frase"
 
-function HelloWorld(){
+function HelloWorld() {
 
     return (
         <div>
             <h3>Meu primeiro componente</h3>
-            <Frase/>
+            <Frase />
         </div>
     )
 }
