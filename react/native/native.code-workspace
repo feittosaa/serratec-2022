@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "native",
+			"path": "."
+		},
+		{
+			"name": "p1-clone",
+			"path": "..\\..\\..\\p1-clone"
+		},
+		{
+			"path": "..\\..\\..\\GitHub\\serratec\\trabalho-final-react-native"
+		}
+	],
+	"settings": {}
+}
